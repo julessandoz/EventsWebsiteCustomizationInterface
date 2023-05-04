@@ -15,6 +15,10 @@ export class TracksRestService implements TracksService {
     }
 
     public getSessions(trackId: String): Observable<Session[]> {
+        if (environment.useMockData) {
+            // load event data from mock data file
+            return this.http.get<Session[]>(`assets/mocks/api/responses/api/events/tracks/${trackId}/sessions`);
+        }
         return this.http.get<Session[]>(`${environment.apiEndpoint}${TracksRestService.tracksEndpoint}/${trackId}/sessions`);
     }
 }

@@ -17,6 +17,8 @@ import { EventQueryParameterNames } from '../event.component';
 import { LocalizableError } from 'src/app/models/LocalizableError';
 import { EventRouterService } from 'src/app/services/event-router.service';
 import { Subscription } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
     selector: "app-speakers",
@@ -43,7 +45,8 @@ export class SpeakersComponent implements OnInit, OnDestroy {
         private route: ActivatedRoute,
         private imageHelper: ImageHelper,
         @Inject(EVENT_SERVICE) private eventService: EventService,
-        private eventRouterService: EventRouterService
+        private eventRouterService: EventRouterService,
+        private httpClient: HttpClient
     ) { }
     ngOnDestroy(): void {
         this.eventRouterSubscription.unsubscribe();
@@ -82,6 +85,20 @@ export class SpeakersComponent implements OnInit, OnDestroy {
 
     private loadSpeakers() {
         this.isLoading = true;
+
+        // check if mock data should be used
+        if (environment.useMockData) {
+            // load event data from mock data file
+            const mockDataUrl = `assets/mocks/api/responses/api/events/event/${this.readableEventId}/speakers/get.json`;
+            this.httpClient.get<Speaker[]>(mockDataUrl).subscribe(
+                speakers => {
+                    this.handleSpeakerLoading(speakers);                    
+                    this.isLoading = false;
+                },
+                (error: LocalizableError) => this.handleErrorResponse(error)
+            );
+            return;
+        }
 
         if (this.speakers == null) {
             this.eventService.getSpeakers(this.readableEventId).

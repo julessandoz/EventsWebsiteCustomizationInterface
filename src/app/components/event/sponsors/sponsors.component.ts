@@ -8,6 +8,8 @@ import { Sponsorship } from '../../../models/Sponsorship';
 import { LocalizableError } from 'src/app/models/LocalizableError';
 import { SponsorshipsService } from 'src/app/services/sponsorships.service';
 import { ImageHelper } from "src/app/helpers/ImageHelper";
+import { environment } from 'src/environments/environment';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
     selector: 'app-sponsors',
@@ -21,11 +23,12 @@ export class SponsorsComponent implements OnInit {
     public isLoading = false;
     public error: LocalizableError;
 
-    public defaultImageUrl = 'default-sponsor-logo.png';
+    public defaultImageUrl = 'assets/mocks/api/responses/default_sponsor_logo.png';
     constructor(
         private imageHelper: ImageHelper,
         @Inject(EVENT_SERVICE) private eventService: EventService,
         @Inject(SPONSORSHIPS_SERVICE) private sponsorsService: SponsorshipsService,
+        private httpClient: HttpClient
     ) {}
 
     ngOnInit() {
@@ -34,8 +37,26 @@ export class SponsorsComponent implements OnInit {
 
     private loadSponsors() {
         this.isLoading = true;
+
+        // check if mock data should be used
+        if (environment.useMockData) {
+            // load event data from mock data file
+            const mockDataUrl = `assets/mocks/api/responses/api/events/event/${this.readableEventId}/sponsors/get.json`;
+            this.httpClient.get<Sponsorship[]>(mockDataUrl).subscribe(
+                sponsorships => {
+                    this.sponsorships = sponsorships;
+                    this.setSponsorLogosSrc();
+                    
+                    this.isLoading = false;
+                },
+                (error: LocalizableError) => this.handleErrorResponse(error)
+            );
+            return;
+        }
+
         this.eventService.getSponsors(this.readableEventId).subscribe(
             sponsorships => {
+                console.log(42);
                 this.sponsorships = sponsorships;
                 this.setSponsorLogosSrc();
 

@@ -51,7 +51,7 @@ export class EventComponent implements OnInit, OnDestroy {
     public error: LocalizableError;
     public formattedDate: string;
 
-    private defaultImageUrlSelfHosted = 'default-event-image.jpg';
+    private defaultImageUrlSelfHosted = 'assets/mocks/api/responses/homehero.jpg';
     private defaultImageUrlCrmHosted = 'homehero.jpg';
     private dataPromise: Promise<any>;
 

@@ -6,6 +6,8 @@ import { EVENT_SERVICE, SESSION_SERVICE } from "src/app/providers/service.provid
 import { EventService } from "src/app/services/event.service";
 import { Observable, of } from "rxjs";
 import { SessionService } from './session.service';
+import { environment } from "src/environments/environment";
+import { HttpClient } from "@angular/common/http";
 
 @Injectable({
     providedIn: "root"
@@ -17,7 +19,8 @@ export class ActiveEventService {
 
     constructor(
         @Inject(EVENT_SERVICE) private eventService: EventService,
-        @Inject(SESSION_SERVICE) private sessionService: SessionService
+        @Inject(SESSION_SERVICE) private sessionService: SessionService,
+        private httpClient: HttpClient
     ) {
         this.events = new Map<string, Event>();
         this.sessions = new Map<string, Array<Session>>();
@@ -31,7 +34,21 @@ export class ActiveEventService {
                 of(this.events.get(readableEventId)).subscribe(observer);
                 return;
             }
-
+    
+            // check if mock data should be used
+            if (environment.useMockData) {
+                // load event data from mock data file
+                const mockDataUrl = `assets/mocks/api/responses/api/events/event/${readableEventId}/get.json`;
+                this.httpClient.get<Event>(mockDataUrl).subscribe(
+                    event => {
+                        this.events.set(readableEventId, event);
+                        of(event).subscribe(observer);
+                    },
+                    error => observer.error(error)
+                );
+                return;
+            }
+    
             // fetch from server
             this.eventService
                 .getEvent(readableEventId)
@@ -48,6 +65,20 @@ export class ActiveEventService {
             // try to load from cache
             if (isCachingAllowed && this.sessions.has(readableEventId)) {
                 of(this.sessions.get(readableEventId)).subscribe(observer);
+                return;
+            }
+
+            // check if mock data should be used
+            if (environment.useMockData) {
+                // load event data from mock data file
+                const mockDataUrl = `assets/mocks/api/responses/api/events/event/${readableEventId}/sessions/get.json`;
+                this.httpClient.get<Session[]>(mockDataUrl).subscribe(
+                    sessions => {
+                        this.sessions.set(readableEventId, sessions);
+                        of(sessions).subscribe(observer);
+                    },
+                    error => observer.error(error)
+                );
                 return;
             }
 
@@ -86,6 +117,21 @@ export class ActiveEventService {
                 of(this.passes.get(readableEventId)).subscribe(observer);
                 return;
             }
+
+            // check if mock data should be used
+            if (environment.useMockData) {
+                // load event data from mock data file
+                const mockDataUrl = `assets/mocks/api/responses/api/events/event/${readableEventId}/passes/get.json`;
+                this.httpClient.get<Pass[]>(mockDataUrl).subscribe(
+                    passes => {
+                        this.passes.set(readableEventId, passes);
+                        of(passes).subscribe(observer);
+                    },
+                    error => observer.error(error)
+                );
+                return;
+            }
+
 
             // fetch from server
             this.eventService

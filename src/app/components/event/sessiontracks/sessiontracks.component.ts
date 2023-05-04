@@ -49,7 +49,7 @@ export class SessiontracksComponent implements OnInit, OnDestroy {
 
     handleLoadSessionTracks(tracks: SessionTrack[]): void {
         this.sessionTracks = tracks;
-
+        console.log(tracks);
         if (this.sessionTracks.length === 0) {
             this.eventRouterService.evaluateRoute();
         }
@@ -65,6 +65,7 @@ export class SessiontracksComponent implements OnInit, OnDestroy {
             this.cntActiveDataRetrievals += 1;
             this.eventService.getSessionTracks(this.readableEventId).subscribe
                 (tracks => {
+                    console.log(tracks)
                     this.handleLoadSessionTracks(tracks);
                     this.cntActiveDataRetrievals -= 1;
                 },

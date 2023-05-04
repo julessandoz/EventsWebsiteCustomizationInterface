@@ -1,0 +1,26 @@
+[
+    {
+        "customRegistrationFieldId": "6888e80a-dee8-ed11-a7c5-000d3a28f224",
+        "type": 100000000,
+        "text": "Username",
+        "isRequired": true,
+        "choices": null,
+        "customFields": {}
+    },
+    {
+        "customRegistrationFieldId": "62539124-dee8-ed11-a7c5-000d3a28f224",
+        "type": 100000001,
+        "text": "Vegan",
+        "isRequired": true,
+        "choices": null,
+        "customFields": {}
+    },
+    {
+        "customRegistrationFieldId": "94c1bc44-dee8-ed11-a7c5-000d3a28f224",
+        "type": 100000003,
+        "text": "Gender",
+        "isRequired": true,
+        "choices": "Male\nFemale\nOther\nDon't want to say",
+        "customFields": {}
+    }
+]

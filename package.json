@@ -30,7 +30,7 @@
     "popper.js": "1.16.1",
     "rxjs": "6.5.4",
     "tree-kill": "1.2.2",
-    "tslib": "1.10.0",
+    "tslib": "^1.10.0",
     "yargs-parser": "15.0.1",
     "zone.js": "0.9.1"
   },

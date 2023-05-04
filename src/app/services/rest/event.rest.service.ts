@@ -24,6 +24,10 @@ export class EventRestService implements EventService {
     }
 
     public getPublishedEvents(): Observable<Event[]> {
+        if (environment.useMockData) {
+            // load event data from mock data file
+            return this.http.get<Event[]>(`assets/mocks/api/responses/api/events/published`);
+        }
         return this.http.get<Event[]>(`${environment.apiEndpoint}${EventRestService.eventsEndpoint}/published`);
     }
 
@@ -34,30 +38,60 @@ export class EventRestService implements EventService {
     }
 
     public getPasses(readableEventId: string): Observable<Pass[]> {
+        if (environment.useMockData) {
+            // load event data from mock data file
+            return this.http.get<Pass[]>(
+                `assets/mocks/api/responses/api/events/event/${readableEventId}/passes`
+            )
+        }
         return this.http.get<Pass[]>(
             `${environment.apiEndpoint}${EventRestService.eventsEndpoint}/${readableEventId}/passes`
         );
     }
 
     public getSessions(readableEventId: string): Observable<Session[]> {
+        if (environment.useMockData) {
+            // load event data from mock data file
+            return this.http.get<Session[]>(
+                `assets/mocks/api/responses/api/events/event/${readableEventId}/sessions`
+            )
+        }
         return this.http.get<Session[]>(
             `${environment.apiEndpoint}${EventRestService.eventsEndpoint}/${readableEventId}/sessions`
         );
     }
 
     public getSessionTracks(readableEventId: string): Observable<SessionTrack[]> {
+        if (environment.useMockData) {
+            // load event data from mock data file
+            return this.http.get<SessionTrack[]>(
+                `assets/mocks/api/responses/api/events/event/${readableEventId}/tracks`
+            )
+        }
         return this.http.get<SessionTrack[]>(
             `${environment.apiEndpoint}${EventRestService.eventsEndpoint}/${readableEventId}/tracks`
         );
     }
 
     public getSpeakers(readableEventId: string): Observable<Speaker[]> {
+        if (environment.useMockData) {
+            // load event data from mock data file
+            return this.http.get<Speaker[]>(
+                `assets/mocks/api/responses/api/events/event/${readableEventId}/speakers`
+            )
+        }
         return this.http.get<Speaker[]>(
             `${environment.apiEndpoint}${EventRestService.eventsEndpoint}/${readableEventId}/speakers`
         );
     }
 
     public getSponsors(readableEventId: string): Observable<Sponsorship[]> {
+        if (environment.useMockData) {
+            // load event data from mock data file
+            return this.http.get<Sponsorship[]>(
+                `assets/mocks/api/responses/api/events/event/${readableEventId}/sponsors`
+            )
+        }
         return this.http.get<Sponsorship[]>(
             `${environment.apiEndpoint}${EventRestService.eventsEndpoint}/${readableEventId}/sponsorships`
         );
@@ -70,17 +104,36 @@ export class EventRestService implements EventService {
     }
 
     public getCustomRegistrationFields(readableEventId: string): Observable<CustomRegistrationFieldModel.CustomRegistrationField[]> {
+        if (environment.useMockData) {
+            // load event data from mock data file
+            return this.http.get<CustomRegistrationFieldModel.CustomRegistrationField[]>(
+                `assets/mocks/api/responses/api/events/event/${readableEventId}/custom-registration-fields`
+            )
+        }
         const url = `${environment.apiEndpoint}${EventRestService.eventsEndpoint}/${readableEventId}/custom-registration-fields`;
         return this.http.get<CustomRegistrationFieldModel.CustomRegistrationField[]>(url);
     }
 
     public getEventRegistrationCount(readableEventId: string): Observable<number> {
+        if (environment.useMockData) {
+            // load event data from mock data file
+            return this.http.get<number>(
+                `assets/mocks/api/responses/api/events/event/${readableEventId}/registrations/count`
+            )
+        }
         return this.http.get<number>(
             `${environment.apiEndpoint}${EventRestService.eventsEndpoint}/${readableEventId}/registrations/count`
         );
     }
 
     public registerToEvent(readableEventId: string, registrationData: RegistrationData): Observable<RegistrationResult> {
+        if (environment.useMockData) {
+            // load event data from mock data file
+            return this.http.post<RegistrationResult>(
+                `assets/mocks/api/responses/api/events/event/${readableEventId}/registrations`,
+                registrationData
+            )
+        }
         const url = `${environment.apiEndpoint}${EventRestService.eventsEndpoint}/${readableEventId}/registrations`;
         return this.http.post<RegistrationResult>(url, registrationData, true);
     }

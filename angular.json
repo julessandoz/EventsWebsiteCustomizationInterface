@@ -28,8 +28,7 @@
               }
             ],
             "styles": [
-              "src/theme/styles.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/theme/styles.scss",
               "node_modules/font-awesome/css/font-awesome.css"
             ],
             "scripts": [

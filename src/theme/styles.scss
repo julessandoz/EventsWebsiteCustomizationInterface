@@ -1,0 +1,72 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import './_overrides.scss';
+
+@import '~bootstrap/scss/bootstrap';
+
+.bg-dark {
+    background-color: #fff !important;
+}
+
+.navbar-brand {
+    color: #0071EB !important;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+}
+
+body h1, body h2, body h3, body h4, body h5, body h6 {
+    font-family: Oswald, sans-serif;
+}
+
+body p, body li, body span, body div {
+    font-family: Roboto, sans-serif;
+}
+
+body h1 {
+    font-size: 4rem;
+}
+
+body h2 {
+    font-size: 2rem;
+}
+
+body h3 {
+    font-size: 1.75rem;
+}
+
+body h4 {
+    font-size: 1.5rem;
+}
+
+body h5 {
+    font-size: 1.25rem;
+}
+
+body h6 {
+    font-size: 1rem;
+}
+
+
+#ms_captcha_holder a {
+    color: #0071EB;
+}
+
+.badge-primary {
+    background-color: #0071EB !important;
+}
+
+body.modal-open {
+    overflow: hidden;
+    position:fixed;
+    width: 100%;
+}
+
+.modal-header {
+    border-bottom: 0 none !important;
+}

@@ -7,8 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "extract": "powershell -File ./extract-changes.ps1"
+    "extract": "pwsh -File ./extract-changes.ps1",
+    "deploy": "pwsh -File ./Scripts/DeployToDynamics365Instance.ps1"
   },
   "private": true,
   "dependencies": {

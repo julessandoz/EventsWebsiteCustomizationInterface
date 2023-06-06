@@ -1,27 +1,20 @@
-# ClientApp
+# Customizing Dynamics 365's Events Portal
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.2.
+As part of my Bachelor's thesis, I'm working with [Silicom Group](https://silicom.group) to help them customize the Events Portal offered by Dynamics 365's Marketing Module more easily and efficiently.
 
-## Development server
+In this repo, I will be storing all my coding progress through the whole project.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Changes to be made
 
-## Code scaffolding
+All along the project, I will be implementing multiple changes to the portal: Here's a non-exhaustive list:
+* Updating the general design such as: 
+    * The colors
+    * The fonts
+* Updating the look of the events list
+* Adding the possibility to redirect to another website when clicking an event in the list
+* Adding the possibility to use private events
+* Adding the possibility to use categories
+* Adding filters to the events list
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Pull requests
+As this is a Bachelor's thesis, external collaborations will not be accepted until at least September '23.

@@ -121,33 +121,33 @@ h4 {
     text-align: center;
 }
 
-.btn-primary {
-    background-color: #006ADB;
-}
+// .btn-primary {
+//     background-color: #006ADB;
+// }
 
-.btn-primary:hover {
-    color: #fff;
-    background-color: #005BBD;
-    border-color: #0062cc;
-}
+// .btn-primary:hover {
+//     color: #fff;
+//     background-color: #005BBD;
+//     border-color: #0062cc;
+// }
 
-.btn-primary:focus { 
-    outline: 1px dashed transparent; 
-    outline-offset: 2px; 
-    border-color: #2D90FB !important;
-    box-shadow: 0 0 0 0.2rem #2D90FB !important;
-}
+// .btn-primary:focus { 
+//     outline: 1px dashed transparent; 
+//     outline-offset: 2px; 
+//     border-color: #2D90FB !important;
+//     box-shadow: 0 0 0 0.2rem #2D90FB !important;
+// }
 
-.btn-primary.disabled, .btn-primary:disabled {
-    background-color: #0056B3;
-  }
+// .btn-primary.disabled, .btn-primary:disabled {
+//     background-color: #0056B3;
+//   }
 
-.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
-  .show > .btn-primary.dropdown-toggle {
-    color: #fff;
-    background-color: #0062cc;
-    border-color: #005cbf;
-}
+// .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
+//   .show > .btn-primary.dropdown-toggle {
+//     color: #fff;
+//     background-color: #0062cc;
+//     border-color: #005cbf;
+// }
 
 @media (min-width: 401px) {
     .checkout .registered-attendee-list {

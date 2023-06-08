@@ -22,10 +22,13 @@ body {
 
 body h1, body h2, body h3, body h4, body h5, body h6 {
     font-family: $font-headings, sans-serif;
+    a {
+        font-family: $font-headings, sans-serif;
+    }
 }
 
 body p, body li, body div, body a, body input{
-    font-family: $font-body, sans-serif !important;
+    font-family: $font-body, sans-serif;
 }
 
 

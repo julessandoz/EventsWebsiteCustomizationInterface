@@ -1,3 +1,6 @@
+@import '../../../theme/overrides';
+@import '~bootstrap/scss/bootstrap';
+
 .event-banner {
     display: flex;
     flex-direction: column;
@@ -5,9 +8,21 @@
     max-width: 100%;
     background-size: cover;
     text-align: center;
-    color: #eee;
-    background-color: #778899;
+    color: $light;
+    background-color: $light;
     height: 420px;
+
+    div div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        h1, h3 {
+            background-color: $dark;
+            padding: 10px;
+        }
+    }
 }
 
 .register-container {
@@ -31,7 +46,7 @@
     text-transform: uppercase;
     font-weight: bold;
     margin-top: 1em;
-    font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-family: $font-headings;
 }
 
 .event-date {
@@ -69,7 +84,7 @@
 
 .nav-link {
     font-weight: 1000;
-    font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-family: $font-body;
     color: #495057;
 }
 
@@ -89,7 +104,7 @@
 .event-details-accordion .card .card-header {
     color: #495057;
     background-color: #fff;
-    border-color: #fff #fff #2196f3;
+    border-color: #fff #fff $primary;
     border-bottom-width: thick;
 }
 
@@ -101,32 +116,32 @@
     padding: 0;
 }
 
-.btn-primary {
-    background-color: #006ADB;
-}
+// .btn-primary {
+//     background-color: #006ADB;
+// }
 
-.btn-primary:hover {
-    color: #fff;
-    background-color: #005BBD;
-    border-color: #0062cc;
-}
+// .btn-primary:hover {
+//     color: #fff;
+//     background-color: #005BBD;
+//     border-color: #0062cc;
+// }
 
-.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
-  .show > .btn-primary.dropdown-toggle {
-    color: #fff;
-    background-color: #0062cc;
-    border-color: #005cbf;
-}
+// .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
+//   .show > .btn-primary.dropdown-toggle {
+//     color: #fff;
+//     background-color: #0062cc;
+//     border-color: #005cbf;
+// }
 
-.btn-primary:focus { 
-    outline: 1px dashed transparent; 
-    outline-offset: 2px; 
-}
+// .btn-primary:focus { 
+//     outline: 1px dashed transparent; 
+//     outline-offset: 2px; 
+// }
 
-.btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
-.show > .btn-primary.dropdown-toggle:focus {
-    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
-}
+// .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
+// .show > .btn-primary.dropdown-toggle:focus {
+//     box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+// }
 
 /* [SM] Small devices (landscape phones, 576px and up) (bootstrap breakpoint SM) */
 @media (min-width: 576px) {

@@ -1,0 +1,40 @@
+@import './fonts/fonts.scss';
+
+// Set the colors for the website here
+$nav-color: #fff;
+$color-primary: #ff0000;
+$color-secondary: #6c757d;
+$color-success: #28a745;
+$color-info: #17a2b8;
+$color-warning: #ffc107;
+$color-danger: #dc3545;
+$color-light: #f8f9fa;
+$color-dark: #000000;
+
+// Set the fonts for the website here
+$font-headings: 'Oswald', sans-serif;
+$font-body: 'Roboto', sans-serif;
+
+/*
+*** YOU SHOULD NOT HAVE TO EDIT ANYTHING BELOW THIS LINE ***
+*/
+
+// Override Bootstrap's color theme
+$theme-colors : ("primary": $color-primary,
+  "secondary": $color-secondary,
+  "success": $color-success,
+  "info": $color-info,
+  "warning": $color-warning,
+  "danger": $color-danger,
+  "light": $color-light,
+  "dark": $color-dark);
+
+// Override Bootstrap's colors one by one
+$primary: $color-primary;
+$secondary: $color-secondary;
+$success: $color-success;
+$info: $color-info;
+$warning: $color-warning;
+$danger: $color-danger;
+$light: $color-light;
+$dark: $color-dark;

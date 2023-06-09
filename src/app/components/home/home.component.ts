@@ -9,6 +9,7 @@ import { LabelsService } from 'src/app/services/labels.service';
 import { TimeDisplayConfig } from '../../../assets/config/config';
 import { DatePipe } from '@angular/common';
 import { DateFormatter } from 'src/app/helpers/DateFormatter';
+import { Router } from '@angular/router';
 
 @Component({
     // tslint:disable-next-line:component-selector
@@ -27,7 +28,8 @@ export class HomeComponent implements OnInit {
     constructor(
         @Inject(EVENT_SERVICE) private eventService: EventService,
         private labelsService: LabelsService,
-        private datePipe: DatePipe) {
+        private datePipe: DatePipe, 
+        public router: Router) {
     }
 
     ngOnInit(): void {

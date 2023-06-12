@@ -126,12 +126,4 @@ export class HomeComponent implements OnInit {
             }
         }
     }
-
-    public getLocationInfo(event: Event) {
-        if (event.building != null) {
-            return `<span class=" fa fa-map-marker fa-lg"></span> <span class="icon-padding">${event.building}</span>`
-        } else {
-            return `<span class=" fa fa-desktop fa-lg"></span> <span class="icon-padding">En ligne</span>`;
-        }
-    }
 }

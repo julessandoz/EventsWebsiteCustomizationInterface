@@ -89,10 +89,10 @@ export const environment = {
      * https://angular.io/api/common/DatePipe#usage-notes
      */
     dateSettings: {
-        singleDateFormat: "MM/dd/yyyy", // used for diplaying single date. Example: 08/20/2020.
-        rangeDateFormat: "MMM d, y", // used for displaying date in a range such as [startDate] - [endDate].
-        timeFormat: "H:mm", // used for displaying time. Example : 9:20 AM
-        timezoneFormat: "zzz",
+        singleDateFormat: "dd.MM.yy", // used for diplaying single date. Example: 08/20/2020.
+        rangeDateFormat: "dd.MM.yy", // used for displaying date in a range such as [startDate] - [endDate].
+        timeFormat: "HH:mm", // used for displaying time. Example : 9:20 AM
+        timezoneFormat: "",
         convertToLocalDate: false, // if set to true will convert all dates to end users local date
 
         /**
@@ -103,7 +103,7 @@ export const environment = {
          *  - [z] -> timezoneFormat
          * Example 08/20/2020, 9:20 AM GMT+1
          */
-        singleDateStructure: "[date], [time] [z]",
+        singleDateStructure: "[date], [time]",
     
         /**
          * Formatting template for a date range
@@ -115,8 +115,8 @@ export const environment = {
          * Jun 15, 2015 21:00 - Jun 16, 2015 21:00 if startDate and endDate are on diffrent days
          * Jun 15, 2015 21:00 - 22:00 if startDate and endDate are on the same days
          */
-        rangeTimeStructure: "[date] [startTime] - [endTime] [z]", // template for time range across multiple hours for a single day
-        rangeDateStructure: "[startDate] [startTime]  - [endDate] [endTime] [z]",  // template for date range across multiple days
+        rangeTimeStructure: "[date] [startTime] - [endTime]", // template for time range across multiple hours for a single day
+        rangeDateStructure: "[startDate] - [endDate]",  // template for date range across multiple days
     },
 
     /**

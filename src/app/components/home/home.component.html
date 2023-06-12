@@ -39,16 +39,20 @@
     <div *ngIf="allEvents" class="container mt-5" id="all-events">
         <div class="row">
             <div class="col-12 col-md-6 col-lg-4 d-flex align-items-stretch" attr.data-href="/event?id={{ event.readableEventId }}" *ngFor="let event of filteredEvents">
-                <div class="card mx-auto mb-4" style="width: 18rem;">
+                <div class="card mx-auto mb-4" style="width: 18rem;" (click)="router.navigate(['/event'], { queryParams: { id: event.readableEventId } })">
+                    <img [src]="getBannerImage(event)" class="card-img-top" alt=""> 
                     <div class="card-body">
-                        <h5 class="card-title">
+                        <h5 class="card-title mb-3">
                              <a [routerLink]="['/event']" [queryParams]="{id: event.readableEventId}" title="{{ event.eventName }}" [attr.aria-label]="getAreaLabel(event)">
                                 {{ event.eventName }}</a>
                         </h5>
-                        <h6 *ngIf="event.building" class="card-subtitle mb-2 text-dark">at {{ event.building.name }} </h6>
+                        <h6 class="d-flex justify-content-start align-items-center card-subtitle mb-2 text-dark"> <span class="fa fa-calendar"></span> <span class="icon-padding">{{ getDateString(event) }}</span> </h6>
                     </div>
-                    <div class="card-footer text-dark" >
-                       {{ getDateString(event) }}
+                    <div *ngIf="event.building" class=" d-flex justify-content-center align-items-center text-dark card-footer">
+                        <span class=" fa fa-map-marker fa-lg"></span> <span class="icon-padding">{{ event.building.name }}</span>
+                    </div>
+                    <div *ngIf="!event.building" class=" d-flex justify-content-center align-items-center text-dark card-footer">
+                        <span class=" fa fa-desktop fa-lg"></span> <span class="icon-padding">En ligne</span>
                     </div>
                 </div>
             </div>

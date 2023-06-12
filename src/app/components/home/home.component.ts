@@ -10,6 +10,8 @@ import { TimeDisplayConfig } from '../../../assets/config/config';
 import { DatePipe } from '@angular/common';
 import { DateFormatter } from 'src/app/helpers/DateFormatter';
 import { Router } from '@angular/router';
+import { ImageHelper } from 'src/app/helpers/ImageHelper';
+import { environment } from '../../../environments/environment';
 
 @Component({
     // tslint:disable-next-line:component-selector
@@ -24,11 +26,14 @@ export class HomeComponent implements OnInit {
     public error?: LocalizableError;
     private subject: Subject<string> = new Subject();
     private timeDisplayConfig: any;
+    private defaultImageUrlSelfHosted = 'assets/mocks/api/responses/homehero.jpg';
+    private defaultImageUrlCrmHosted = 'homehero.jpg';
 
     constructor(
         @Inject(EVENT_SERVICE) private eventService: EventService,
         private labelsService: LabelsService,
         private datePipe: DatePipe, 
+        private imageHelper: ImageHelper,
         public router: Router) {
     }
 
@@ -102,6 +107,31 @@ export class HomeComponent implements OnInit {
             this.filteredEvents.sort((a, b) => a.eventName.localeCompare(b.eventName));
         } else if (order === "name-desc") {
             this.filteredEvents.sort((a, b) => b.eventName.localeCompare(a.eventName));
+        }
+    }
+
+    public getBannerImage(event: Event) {
+        if (event == null) {
+            // This early exit avoids showing placeholder image while event isn't loaded.
+            return '';
+        }
+
+        if (event.image != null) {
+            return event.image;
+        } else {
+            if (environment.useRestStack === true) {
+                return this.imageHelper.getImageUrl(this.defaultImageUrlSelfHosted);
+            } else {
+                return this.imageHelper.getImageUrl(this.defaultImageUrlCrmHosted);
+            }
+        }
+    }
+
+    public getLocationInfo(event: Event) {
+        if (event.building != null) {
+            return `<span class=" fa fa-map-marker fa-lg"></span> <span class="icon-padding">${event.building}</span>`
+        } else {
+            return `<span class=" fa fa-desktop fa-lg"></span> <span class="icon-padding">En ligne</span>`;
         }
     }
 }

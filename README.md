@@ -11,6 +11,7 @@ All along the project, I will be implementing multiple changes to the portal: He
     * The colors
     * The fonts
 * Updating the look of the events list
+* Updating the look of the events' details pages
 * Adding the possibility to redirect to another website when clicking an event in the list
 * Adding the possibility to use private events
 * Adding the possibility to use categories

@@ -4,20 +4,21 @@
 
 <div class="container" *ngIf="sessions && sessions.length > 0">
     <div class="sessions-list list-group">
-        <div *ngFor="let session of sessions" (click)="expandSession(session)" class="list-group-item list-group-item-action flex-column align-items-start" tabindex="0">
-            <div class="d-flex">
-                <div class="">
+        <div *ngFor="let session of sessions" (click)="expandSession(session)" class="list-group-item list-group-item-action flex-row align-items-start" tabindex="0">
+            <div class="d-flex flex-column session-card">
+                <div class="session-info">
                     <div class="d-flex w-100 justify-content-between">
                         <h5 class="session-name mb-1">{{ session.name }}</h5>
                     </div>
                     <div *ngIf="showWaitlistBadge(session)" class="h5">
                         <span class="badge badge-primary" [appTranslate]="'Waitlist'">Waitlist</span>
                     </div>
-                    <small class="text-muted">
-                        {{ getDateString(session) }}
+                    <small class="session-date-time">
+                        <span class="fa fa-clock-o"></span> {{ getDateString(session) }}
                     </small>
-                    <small class="text-muted">
+                    <small class="session-location">
                         <div>
+                            <span *ngIf="(session.room != null && session.room.name != '') || (session.building != null && session.building.name != '')" class="fa fa-map-marker"></span>
                             <span *ngIf="session.room != null && session.room.name != ''">
                                 {{ session.room.name }} @
                             </span>
@@ -28,12 +29,12 @@
                     </small>
                     <small *ngIf="showWaitlistBadge(session)" class="text-muted font-weight-light" [appTranslate]="'OnlyWaitlistRegistrationPossibleText'">New registrants will be added to the waitlist for this session.</small>
                     <div class="mb-1" *ngIf="isSessionExpanded(session)">
-                        <p class="mb-1" *ngIf="session.sessionSummary != null && session.sessionSummary != ''">
+                        <small class="mb-1" *ngIf="session.sessionSummary != null && session.sessionSummary != ''">
                             {{ session.sessionSummary }}
-                        </p>
-                        <p class="mb-1" *ngIf="session.detailedDescription != null && session.detailedDescription != ''">
+                        </small>
+                        <small class="mb-1" *ngIf="session.detailedDescription != null && session.detailedDescription != ''">
                             {{ session.detailedDescription }}
-                        </p>
+                        </small>
                         <div class="mb-1" *ngIf="session.speakers != null && session.speakers.length > 0">
                             <div *ngFor="let speaker of session.speakers" class="d-flex flex-row bd-highlight">
                                 <div class="speaker-image p-2 bd-highlight">

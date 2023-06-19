@@ -2,12 +2,67 @@
     max-height: inherit;
 }
 
+.list-group {
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    justify-content: space-evenly left;
+    .list-group-item {
+        flex-grow: 0;
+        border-top-width: 1px !important;
+        width: 23%;
+        height: 100%;
+        min-height: 180px;
+        margin: 1%;
+        box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+}
+
 .sessions-list {
     max-height: inherit;
     overflow-y: auto;
 
     .session-name {
         word-break: break-word;
+    }
+}
+
+.session-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 170px;
+    height: 100%;
+}
+
+.session-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+::ng-deep .speaker-details .container .sessions-list.list-group{
+    display: flex;
+    flex-direction: column !important;
+
+    .list-group-item {
+        width: 100%;
+        height: auto;
+        min-height: auto;
+        margin: 5px 0;
+        box-shadow: 0 0 5px rgba(0,0,0,0.09);
+
+        .session-card {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: left;
+            min-height: auto;
+            
+            .session-info {
+                align-items: flex-start;
+            }
+        }
     }
 }
 
@@ -19,21 +74,21 @@
     height: 30px;
 }
 
-.btn-primary {
-    background-color: #006ADB;
-}
+// .btn-primary {
+//     background-color: #006ADB;
+// }
 
-.btn-primary:hover {
-    color: #fff;
-    background-color: #005BBD;
-    border-color: #0062cc;
-}
+// .btn-primary:hover {
+//     color: #fff;
+//     background-color: #005BBD;
+//     border-color: #0062cc;
+// }
 
-.btn-primary:focus { 
-    outline: 1px dashed transparent; 
-    outline-offset: 2px; 
-}
+// .btn-primary:focus { 
+//     outline: 1px dashed transparent; 
+//     outline-offset: 2px; 
+// }
 
-.btn-link:focus {
-    outline: -webkit-focus-ring-color auto 5px;
-}
+// .btn-link:focus {
+//     outline: -webkit-focus-ring-color auto 5px;
+// }

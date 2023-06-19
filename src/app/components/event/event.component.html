@@ -16,7 +16,8 @@
                 <div class="col-md-12">
                     <h1 class="section-landing-heading">{{ event.eventName }}</h1>
                     <h3 class="event-date"> {{ formatStartDate() }}</h3>
-                    <h3 class="event-location">{{ event.building ? event.building.name : '' }}</h3>
+                    <h3 *ngIf="event.building" class="event-location">{{event.building.name}}</h3>
+                    <h3 *ngIf="!event.building" class="event-location">En Ligne</h3>
                 </div>
             </div>
             <div class="row register-container" id="register-now">

@@ -1,3 +1,5 @@
+@import '../../../../theme/_overrides.scss';
+
 .speaker-image {
     height: 150px;
     width: 150px;
@@ -32,7 +34,7 @@
 }
 
 .speaker-image:hover {
-    border: 6px solid #2196f3;
+    border: 6px solid $primary;
     border-radius: 50%;
 }
 
@@ -58,6 +60,21 @@
 }
 
 .speaker-contact-information a {
-    color: #303030;
+    color: $dark;
 
+}
+
+.speaker-links {
+    padding: 0 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 1em;
+    gap: 10px;
+    
+    .fa{
+        margin-right: auto;
+    }
 }

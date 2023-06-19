@@ -84,6 +84,7 @@ export class SessionsListViewComponent implements OnInit {
         if (index !== -1) {
             this.expandedSessions.splice(index, 1);
         } else {
+            this.expandedSessions = [];
             this.expandedSessions.push(session.id);
         }
     }

@@ -186,4 +186,13 @@ export class SessionsComponent implements OnInit, OnDestroy {
             })
         );
     }
+
+    public isSingleDayEvent(): boolean {
+        const eventStartDateTime = new Date(this.event.startDate);
+        const eventEndDateTime = new Date(this.event.endDate);
+
+        return eventStartDateTime.getDate() === eventEndDateTime.getDate() 
+        && eventStartDateTime.getMonth() === eventEndDateTime.getMonth() 
+        && eventStartDateTime.getFullYear() === eventEndDateTime.getFullYear();
+    }
 }

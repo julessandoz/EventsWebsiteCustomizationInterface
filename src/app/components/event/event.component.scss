@@ -12,13 +12,14 @@
     background-color: $light;
     height: 420px;
 
-    div div{
+    div div {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
 
-        h1, h3 {
+        h1,
+        h3 {
             background-color: $dark;
             padding: 10px;
         }
@@ -142,6 +143,38 @@
 // .show > .btn-primary.dropdown-toggle:focus {
 //     box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
 // }
+
+::ng-deep .container .filters .row {
+    width: 100%;
+    margin: 0 !important;
+
+    .select-date {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        width: 100%;
+
+        .custom-select {
+            border-color: $primary;
+            border-radius: 50px;
+            width: 60%;
+        }
+    }
+    
+    .input-group {
+
+        .input-group-prepend .input-group-text {
+            background-color: transparent;
+            border-color: $primary;
+            border-radius: 5px 0 0 5px;
+        }
+
+        .custom-select{
+            border-color: $primary;
+            border-radius: 0 50px 50px 0;
+        }
+    }
+}
 
 /* [SM] Small devices (landscape phones, 576px and up) (bootstrap breakpoint SM) */
 @media (min-width: 576px) {

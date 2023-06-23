@@ -116,32 +116,24 @@
     padding: 0;
 }
 
-// .btn-primary {
-//     background-color: #006ADB;
-// }
+.row.register-container button.btn.btn-primary{
+    background-color: $color-primary-light;
+    border-color: $color-primary-light;
+    color: $primary;
+    border-radius: 5px;
 
-// .btn-primary:hover {
-//     color: #fff;
-//     background-color: #005BBD;
-//     border-color: #0062cc;
-// }
+    &:hover {
+        background-color: $color-primary;
+        border-color: $color-primary;
+        color: $light;
+    }
 
-// .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
-//   .show > .btn-primary.dropdown-toggle {
-//     color: #fff;
-//     background-color: #0062cc;
-//     border-color: #005cbf;
-// }
+    &:focus {
+        outline: 1px dashed transparent;
+        outline-offset: 2px;
+    }
 
-// .btn-primary:focus { 
-//     outline: 1px dashed transparent; 
-//     outline-offset: 2px; 
-// }
-
-// .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
-// .show > .btn-primary.dropdown-toggle:focus {
-//     box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
-// }
+}
 
 /* [SM] Small devices (landscape phones, 576px and up) (bootstrap breakpoint SM) */
 @media (min-width: 576px) {

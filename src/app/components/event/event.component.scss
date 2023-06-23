@@ -24,6 +24,13 @@
             padding: 10px;
         }
     }
+
+    .row.register-container button.btn.btn-primary{
+        background-color: $color-primary-light;
+        border-color: $color-primary-light;
+        color: $primary;
+        border-radius: 5px;
+    }
 }
 
 .register-container {

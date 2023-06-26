@@ -51,8 +51,12 @@ export class HomeComponent implements OnInit {
         this.isLoading = true;
         this.eventService.getPublishedEvents().subscribe(
             events => {
-                this.allEvents = events;
-                this.filteredEvents = events;
+                this.allEvents = events.filter((event: Event) => {
+                    return !event.customFields.sili4gde_evenementprive;
+                });
+                this.filteredEvents = events.filter((event: Event) => {
+                    return !event.customFields.sili4gde_evenementprive;
+                });
                 this.isLoading = false;
             },
             (error: LocalizableError) => this.handleErrorResponse(error)

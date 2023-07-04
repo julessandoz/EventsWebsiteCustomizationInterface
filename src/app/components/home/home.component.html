@@ -9,7 +9,8 @@
             <h3 [appTranslate]="'AvailableEvents'">Available events</h3>
             <div class="wrapper-searchsort">
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" (keyup)="search(searchText)" [(ngModel)]="searchText" placeholder="{{ translateLabel('Search', 'Search') | async }}" aria-describedby="basic-addon1">
+                    <input type="text" class="form-control" (keyup)="search(searchText)" [(ngModel)]="searchText"
+                        placeholder="{{ translateLabel('Search', 'Search') | async }}" aria-describedby="basic-addon1">
                     <div class="input-group-append">
                         <span class="input-group-text" id="basic-addon1">
                             <i class="fa fa-search"></i>
@@ -17,12 +18,15 @@
                     </div>
                 </div>
                 <div class="d-inline-block" ngbDropdown #myDrop="ngbDropdown">
-                    <button class="btn btn-outline-primary mr-2" id="dropdownManual" ngbDropdownAnchor (focus)="myDrop.open()" (click)="myDrop.open()" [appTranslate]="'SortBy'">Sort by</button>
+                    <button class="btn btn-outline-primary mr-2" id="dropdownManual" ngbDropdownAnchor
+                        (focus)="myDrop.open()" (click)="myDrop.open()" [appTranslate]="'SortBy'">Sort by</button>
                     <div ngbDropdownMenu aria-labelledby="dropdownManual">
                         <button ngbDropdownItem (click)="orderEvents('name-asc')" [appTranslate]="'AZ'">A-Z</button>
                         <button ngbDropdownItem (click)="orderEvents('name-desc')" [appTranslate]="'ZA'">Z-A</button>
-                        <button ngbDropdownItem (click)="orderEvents('date-desc')" [appTranslate]="'Newest'">Newest</button>
-                        <button ngbDropdownItem (click)="orderEvents('date-asc')" [appTranslate]="'Oldest'">Oldest</button>
+                        <button ngbDropdownItem (click)="orderEvents('date-desc')"
+                            [appTranslate]="'Newest'">Newest</button>
+                        <button ngbDropdownItem (click)="orderEvents('date-asc')"
+                            [appTranslate]="'Oldest'">Oldest</button>
                     </div>
                 </div>
             </div>
@@ -30,29 +34,34 @@
     </div>
 
     <div *ngIf="error">
-        <app-errormessage
-            [serverErrorMessage]="error.message"
-            [errorMessageTranslationKey]="error.localizationKey">
+        <app-errormessage [serverErrorMessage]="error.message" [errorMessageTranslationKey]="error.localizationKey">
         </app-errormessage>
     </div>
 
     <div *ngIf="allEvents" class="container mt-5" id="all-events">
         <div class="row">
-            <div class="col-12 col-md-6 col-lg-4 d-flex align-items-stretch" attr.data-href="/event?id={{ event.readableEventId }}" *ngFor="let event of filteredEvents">
-                <div class="card mx-auto mb-4" style="width: 18rem;" (click)="router.navigate(['/event'], { queryParams: { id: event.readableEventId } })">
-                    <img [src]="getBannerImage(event)" class="card-img-top" alt=""> 
+            <div class="col-12 col-md-6 col-lg-4 d-flex align-items-stretch"
+                attr.data-href="/event?id={{ event.readableEventId }}" *ngFor="let event of filteredEvents">
+                <div class="card mx-auto mb-4" style="width: 18rem;" (click)="redirectToEvent(event)">
+                    <img [src]="getBannerImage(event)" class="card-img-top" alt="">
                     <div class="card-body d-flex flex-column justify-content-between">
                         <h5 class="card-title">
-                             <a [routerLink]="['/event']" [queryParams]="{id: event.readableEventId}" title="{{ event.eventName }}" [attr.aria-label]="getAreaLabel(event)">
+                            <a title="{{ event.eventName }}" [attr.aria-label]="getAreaLabel(event)">
                                 {{ event.eventName }}</a>
                         </h5>
-                        <small *ngIf="event.customFields.sili4gde_descriptioncourte" class="card-text">{{event.customFields.sili4gde_descriptioncourte}}</small>
-                        <h6 class="d-flex justify-content-start align-items-center card-subtitle mb-2 text-dark"> <span class="fa fa-calendar"></span> <span class="icon-padding">{{ getDateString(event) }}</span> </h6>
+                        <small *ngIf="event.customFields.sili4gde_descriptioncourte"
+                            class="card-text">{{event.customFields.sili4gde_descriptioncourte}}</small>
+                        <h6 class="d-flex justify-content-start align-items-center card-subtitle mb-2 text-dark"> <span
+                                class="fa fa-calendar"></span> <span class="icon-padding">{{ getDateString(event)
+                                }}</span> </h6>
                     </div>
-                    <div *ngIf="event.building" class=" d-flex justify-content-center align-items-center text-dark card-footer">
-                        <span class=" fa fa-map-marker fa-lg"></span> <span class="icon-padding">{{ event.building.name }}</span>
+                    <div *ngIf="event.building"
+                        class=" d-flex justify-content-center align-items-center text-dark card-footer">
+                        <span class=" fa fa-map-marker fa-lg"></span> <span class="icon-padding">{{ event.building.name
+                            }}</span>
                     </div>
-                    <div *ngIf="!event.building" class=" d-flex justify-content-center align-items-center text-dark card-footer">
+                    <div *ngIf="!event.building"
+                        class=" d-flex justify-content-center align-items-center text-dark card-footer">
                         <span class=" fa fa-desktop fa-lg"></span> <span class="icon-padding">En ligne</span>
                     </div>
                 </div>

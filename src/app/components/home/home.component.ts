@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
         private labelsService: LabelsService,
         private datePipe: DatePipe, 
         private imageHelper: ImageHelper,
-        public router: Router) {
+        private router: Router) {
     }
 
     ngOnInit(): void {
@@ -124,6 +124,14 @@ export class HomeComponent implements OnInit {
             } else {
                 return this.imageHelper.getImageUrl(this.defaultImageUrlCrmHosted);
             }
+        }
+    }
+
+    public redirectToEvent(event: Event) {
+        if (event.customFields.sili4gde_liendelevenementexterne != null && event.customFields.sili4gde_liendelevenementexterne !== '') {
+            window.open(event.customFields.sili4gde_liendelevenementexterne, "_blank");
+        } else {
+            this.router.navigate(['/event'], { queryParams: { id: event.readableEventId } })
         }
     }
 }

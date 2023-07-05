@@ -37,4 +37,13 @@ export interface Event {
     setRegistrationEndDate: boolean;
     stopRegistrationDate: Date;
     websiteMessage: string;
+    customFields: EventCustom;
+}
+
+export interface EventCustom {
+    sili4gde_descriptioncourte: string;
+    sili4gde_categoriedevenement: string;
+    sili4gde_evenementprive: boolean;
+    sili4gde_languedelevenement: string;
+    sili4gde_liendelevenementexterne: string;
 }

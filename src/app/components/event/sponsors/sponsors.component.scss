@@ -1,9 +1,18 @@
+@import '../../../../theme/overrides';
+
 .event-sponsors-container {
-    background: #ccc;
+    background: $light;
     padding-bottom: 60px;
     color: black;
     width: 100%;
     text-align: center;
+
+    .container .row{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+    }
 }
 
 .event-sponsors-container h3 {

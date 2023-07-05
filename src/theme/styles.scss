@@ -13,6 +13,10 @@
     color: $secondary;
 }
 
+.event-data-container a.nav-link {
+    color: $dark !important;
+}
+
 html {
     height: 100%;
 }

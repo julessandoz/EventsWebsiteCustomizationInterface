@@ -1,13 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
-
 @import './_overrides.scss';
-// @import '~bootstrap/scss/bootstrap';
 
 .bg-dark {
     background-color: $nav-color !important;
 }
 
-.navbar-brand, .nav-link {
+.navbar-brand, .nav-link, button.navbar-toggler {
     color: $primary !important;
 }
 

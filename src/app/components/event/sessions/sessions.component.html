@@ -17,7 +17,7 @@
             <div class="filters mr-3 ml-3">
                 <div class="row">
                     <div class="select-date col-sm-6 col-md-4 offset-sm-6 offset-md-8">
-                        <select class="custom-select" role="tablist" [(ngModel)]="selectedDateKey" aria-label="Choose date">
+                        <select *ngIf="!isSingleDayEvent()" class="custom-select" role="tablist" [(ngModel)]="selectedDateKey" aria-label="Choose date">
                             <option *ngFor="let dateKey of dateKeys" value="{{dateKey}}" role="tab">
                                 {{ dateText(dateKey) | async }}
                             </option>

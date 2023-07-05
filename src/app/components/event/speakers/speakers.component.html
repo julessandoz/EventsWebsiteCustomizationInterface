@@ -74,6 +74,27 @@
                         <div class="speaker-title">
                             {{ speaker.title }}
                         </div>
+                        <div class="speaker-links">
+                            <div *ngIf="speaker.website">
+                                <a href="{{ speaker.website }}" target="blank" class="x-hidden-focus" label="Website">
+                                    <i class="fa fa-globe fa-lg" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                            <div *ngIf="speaker.blog">
+                                <a href="{{speaker.blog}}" target="_blank" class="x-hidden-focus" label="Blog">
+                                    <i class="fa fa-book fa-lg" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                            <div *ngIf="speaker.linkedin">
+                                <a href="{{speaker.linkedin}}" target="_blank" class="x-hidden-focus" label="Blog">
+                                    <i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a>
+                            </div>
+                            <div *ngIf="speaker.twitter">
+                                <a href="{{speaker.twitter}}" target="_blank" class="x-hidden-focus" label="Twitter">
+                                    <i class="fa fa-twitter fa-lg" aria-hidden="true"></i>
+                                </a>
+                            </div> 
+                        </div>
                     </div>
                 </div>
             </div>

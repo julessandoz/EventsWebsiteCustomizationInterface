@@ -4,23 +4,62 @@
 .event-banner {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-items: center;
     max-width: 100%;
     background-size: cover;
     text-align: center;
     color: $light;
     background-color: $light;
-    height: 420px;
+    height: fit-content;
+    padding: 2% 0;
 
-    div div{
+    .content-bg {
+        height: auto;
+        width: fit-content;
+        max-width: 50%;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
+        gap: 20px;
+        padding: 1.5% 3.5%;
 
-        h1, h3 {
-            background-color: $dark;
-            padding: 10px;
+        border-radius: 25px;
+
+        .row {
+            max-width: 70%;
+            min-width: 10vw;
+            div {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 15px;
+                align-items: center;
+        
+                h1,
+                h3 {
+                    color: $dark;
+                }
+    
+                h1 {
+                    font-size: 2rem;
+                    margin: 0;
+                }
+    
+            }
+        }
+
+        .row.register-container {
+            margin-bottom: 0;
+            max-width: none;
+
+            button.btn.btn-primary {
+                background-color: $color-primary-light;
+                border-color: $color-primary-light;
+                color: $primary;
+                border-radius: 5px;
+            }
         }
     }
 }
@@ -116,32 +155,78 @@
     padding: 0;
 }
 
-// .btn-primary {
-//     background-color: #006ADB;
-// }
+.row.register-container button.btn.btn-primary{
+    background-color: $color-primary-light;
+    border-color: $color-primary-light;
+    color: $primary;
+    border-radius: 5px;
 
-// .btn-primary:hover {
-//     color: #fff;
-//     background-color: #005BBD;
-//     border-color: #0062cc;
-// }
+    &:hover {
+        background-color: $color-primary;
+        border-color: $color-primary;
+        color: $light;
+    }
 
-// .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
-//   .show > .btn-primary.dropdown-toggle {
-//     color: #fff;
-//     background-color: #0062cc;
-//     border-color: #005cbf;
-// }
+    &:focus {
+        outline: 1px dashed transparent;
+        outline-offset: 2px;
+    }
 
-// .btn-primary:focus { 
-//     outline: 1px dashed transparent; 
-//     outline-offset: 2px; 
-// }
+}
 
-// .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
-// .show > .btn-primary.dropdown-toggle:focus {
-//     box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
-// }
+::ng-deep .container .filters .row {
+    width: 100%;
+    margin: 0 !important;
+
+    .select-date {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        width: 100%;
+
+        .custom-select {
+            border-color: $primary;
+            border-radius: 50px;
+            width: 60%;
+        }
+    }
+
+    .input-group {
+
+        .input-group-prepend .input-group-text {
+            background-color: transparent;
+            border-color: $primary;
+            border-radius: 5px 0 0 5px;
+        }
+
+        .custom-select {
+            border-color: $primary;
+            border-radius: 0 50px 50px 0;
+        }
+    }
+}
+
+/* [XS] Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 576px) {
+    .event-banner {  
+        padding: 0;
+
+        .content-bg {
+            height: 100%;
+            width: 100%;
+            max-width: 100%;
+            gap: 10px;
+            border-radius: 0px;
+            padding: 3%;
+
+            .event-date {
+                margin: 0;
+            }
+        }
+    }
+
+
+}
 
 /* [SM] Small devices (landscape phones, 576px and up) (bootstrap breakpoint SM) */
 @media (min-width: 576px) {
@@ -169,4 +254,5 @@
         padding: .5rem 1rem;
         font-size: 20px;
     }
+
 }

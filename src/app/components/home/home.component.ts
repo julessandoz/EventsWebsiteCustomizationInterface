@@ -9,6 +9,9 @@ import { LabelsService } from 'src/app/services/labels.service';
 import { TimeDisplayConfig } from '../../../assets/config/config';
 import { DatePipe } from '@angular/common';
 import { DateFormatter } from 'src/app/helpers/DateFormatter';
+import { Router } from '@angular/router';
+import { ImageHelper } from 'src/app/helpers/ImageHelper';
+import { environment } from '../../../environments/environment';
 
 @Component({
     // tslint:disable-next-line:component-selector
@@ -23,11 +26,15 @@ export class HomeComponent implements OnInit {
     public error?: LocalizableError;
     private subject: Subject<string> = new Subject();
     private timeDisplayConfig: any;
+    private defaultImageUrlSelfHosted = 'assets/mocks/api/responses/homehero.jpg';
+    private defaultImageUrlCrmHosted = 'homehero.jpg';
 
     constructor(
         @Inject(EVENT_SERVICE) private eventService: EventService,
         private labelsService: LabelsService,
-        private datePipe: DatePipe) {
+        private datePipe: DatePipe, 
+        private imageHelper: ImageHelper,
+        private router: Router) {
     }
 
     ngOnInit(): void {
@@ -44,8 +51,12 @@ export class HomeComponent implements OnInit {
         this.isLoading = true;
         this.eventService.getPublishedEvents().subscribe(
             events => {
-                this.allEvents = events;
-                this.filteredEvents = events;
+                this.allEvents = events.filter((event: Event) => {
+                    return !event.customFields.sili4gde_evenementprive;
+                });
+                this.filteredEvents = events.filter((event: Event) => {
+                    return !event.customFields.sili4gde_evenementprive;
+                });
                 this.isLoading = false;
             },
             (error: LocalizableError) => this.handleErrorResponse(error)
@@ -100,6 +111,31 @@ export class HomeComponent implements OnInit {
             this.filteredEvents.sort((a, b) => a.eventName.localeCompare(b.eventName));
         } else if (order === "name-desc") {
             this.filteredEvents.sort((a, b) => b.eventName.localeCompare(a.eventName));
+        }
+    }
+
+    public getBannerImage(event: Event) {
+        if (event == null) {
+            // This early exit avoids showing placeholder image while event isn't loaded.
+            return '';
+        }
+
+        if (event.image != null) {
+            return event.image;
+        } else {
+            if (environment.useRestStack === true) {
+                return this.imageHelper.getImageUrl(this.defaultImageUrlSelfHosted);
+            } else {
+                return this.imageHelper.getImageUrl(this.defaultImageUrlCrmHosted);
+            }
+        }
+    }
+
+    public redirectToEvent(event: Event) {
+        if (event.customFields.sili4gde_liendelevenementexterne != null && event.customFields.sili4gde_liendelevenementexterne !== '') {
+            window.open(event.customFields.sili4gde_liendelevenementexterne, "_blank");
+        } else {
+            this.router.navigate(['/event'], { queryParams: { id: event.readableEventId } })
         }
     }
 }

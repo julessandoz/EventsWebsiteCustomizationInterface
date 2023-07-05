@@ -92,3 +92,38 @@
 // .btn-link:focus {
 //     outline: -webkit-focus-ring-color auto 5px;
 // }
+/* [XS] Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 576px) {
+    .list-group {
+        .list-group-item {
+            width: 100%;
+        }
+    }
+}
+
+/* [SM] Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    .list-group {
+        .list-group-item {
+            width: 48%;
+        }
+    }
+}
+
+/* [MD] Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .list-group {
+        .list-group-item {
+            width: 31%;
+        }
+    }
+}
+
+/* [LG] Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .list-group {
+        .list-group-item {
+            width: 23%;
+        }
+    }
+}

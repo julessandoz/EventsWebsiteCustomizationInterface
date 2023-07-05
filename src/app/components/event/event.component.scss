@@ -214,6 +214,27 @@
     }
 }
 
+/* [XS] Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 576px) {
+    .event-banner {  
+        padding: 0;
+
+        .content-bg {
+            height: 100%;
+            width: 100%;
+            max-width: 100%;
+            gap: 10px;
+            border-radius: 0px;
+            padding: 3%;
+
+            .event-date {
+                margin: 0;
+            }
+        }
+    }
+
+
+}
 
 /* [SM] Small devices (landscape phones, 576px and up) (bootstrap breakpoint SM) */
 @media (min-width: 576px) {

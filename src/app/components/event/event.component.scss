@@ -218,10 +218,24 @@
             gap: 10px;
             border-radius: 0px;
             padding: 3%;
+            
+            .row {
+                    max-width: 90% !important;
 
-            .event-date {
-                margin: 0;
-            }
+                    &:nth-child(1) {
+                        margin-top: 5% !important; 
+                    }
+
+                    h1.section-landing-heading {
+                        font-size: 2.3rem !important;
+                    }
+
+                    .event-date {
+                        margin: 0;
+                    }
+                }
+
+            
         }
     }
 

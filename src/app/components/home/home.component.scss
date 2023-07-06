@@ -1,4 +1,6 @@
-﻿.page-header {
+﻿@import '../../../theme/overrides';
+
+.page-header {
     margin: 42px 0 21px;
 }
 
@@ -27,6 +29,14 @@ input {
 
 .card {
     cursor: pointer;
+
+    &.external h5.card-title::after {
+        content: "\f08e";
+        /* Unicode for fa-external-link in FontAwesome 4 */
+        font-family: 'FontAwesome';
+        margin-left: 10px;
+        color: inherit;
+    }
 }
 
 .card .card-img-top {
@@ -44,13 +54,13 @@ input {
 
 
 @media only screen and (max-width: 991px) {
-    .wrapper-searchsort  {
-       float: none;
-       width: 100%;
-       display: flex;
-       margin-top: 15px;
+    .wrapper-searchsort {
+        float: none;
+        width: 100%;
+        display: flex;
+        margin-top: 15px;
     }
-  }
+}
 
 .input-group-text {
     background-color: transparent !important;
@@ -87,4 +97,3 @@ input {
 .page-header {
     padding: 0 30px;
 }
-

@@ -125,6 +125,15 @@
             width: 100%;
         }
     }
+
+    ::ng-deep .session-cart .container .sessions-list.list-group{
+        display: flex;
+        flex-direction: column !important;
+    
+        .list-group-item {
+            width: 100% !important;
+        }
+    }
 }
 
 /* [SM] Small devices (landscape phones, 576px and up) */

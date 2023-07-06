@@ -1,15 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
-
 @import './_overrides.scss';
-
-@import '~bootstrap/scss/bootstrap';
 
 .bg-dark {
     background-color: $nav-color !important;
 }
 
-.navbar-brand, #languages-dropdown, #signin-link {
+.navbar-brand, .nav-link, button.navbar-toggler {
     color: $primary !important;
+}
+
+.session-cart-count-badge {
+    background-color: $primary !important;
+}
+
+.footer-copyright {
+    color: $secondary;
+}
+
+.event-data-container a.nav-link {
+    color: $dark !important;
 }
 
 html {

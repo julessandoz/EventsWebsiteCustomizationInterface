@@ -57,3 +57,24 @@ nav {
 #account-link {
     color: #fff;
 }
+
+.logo-image img {
+    position: relative;
+    top: 1px;
+    float: left;
+    width: 200px;
+    height: auto;
+    margin: 0 1px;
+}
+
+@media (max-width: 576px) {
+    .session-cart-opener {
+        .session-cart-count-badge {
+            top: 40%;
+        }
+    }
+
+    #home-button .logo-image img {
+        width: 150px;
+    }
+}

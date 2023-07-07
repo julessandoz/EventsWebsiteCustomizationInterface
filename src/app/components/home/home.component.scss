@@ -37,6 +37,49 @@ input {
         margin-left: 10px;
         color: inherit;
     }
+
+    .card-body {
+        position: relative;
+
+        .categories.languages.list {
+            position: absolute;
+            top: -6%;
+            left: 0;
+            width: 100%;
+            padding: 0 5%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-wrap: nowrap;
+            gap: 5px;
+            overflow-x: hidden;
+
+            .info-pill {
+                max-width: 50%;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                padding: 5px 10px;
+                background-color: $primary;
+                border-radius: 50px !important;
+                color: $light   ;
+                font-size: 11px;
+                font-weight: 500;
+                border-radius: 0 0 0 5px;
+    
+                &.category {
+                    background-color: $primary;
+                    color: $color-primary-light;
+                }
+    
+                &.language {
+                    background-color: $color-primary-light;
+                    color: $primary;
+                }
+            }
+
+        }
+    }
 }
 
 .card .card-img-top {

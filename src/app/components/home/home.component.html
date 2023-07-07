@@ -44,6 +44,14 @@
                 <div [class]="event.customFields.sili4gde_liendelevenementexterne? 'external card mx-auto mb-4' : 'card mx-auto mb-4'" style="width: 18rem;" (click)="redirectToEvent(event)">
                     <img [src]="getBannerImage(event)" class="card-img-top" alt="">
                     <div class="card-body d-flex flex-column justify-content-between">
+                        <div class="categories languages list">
+                            <div class="info-pill category" *ngIf="event.customFields.sili4gde_categoriedevenement">
+                                {{ event.customFields.sili4gde_categoriedevenement.Name }}
+                            </div>
+                            <div class="info-pill language" *ngIf="event.customFields.sili4gde_languedelevenement">
+                                {{ event.customFields.sili4gde_languedelevenement.Name }}
+                            </div>
+                        </div>
                         <h5 class="card-title">
                             <a title="{{ event.eventName }}" [attr.aria-label]="getAreaLabel(event)">
                                 {{ event.eventName }}</a>
@@ -61,7 +69,7 @@
                     </div>
                     <div *ngIf="!event.building"
                         class=" d-flex justify-content-center align-items-center text-dark card-footer">
-                        <span class=" fa fa-desktop fa-lg"></span> <span class="icon-padding">En ligne</span>
+                        <span class=" fa fa-desktop fa-lg"></span> <span class="icon-padding">Online</span>
                     </div>
                 </div>
             </div>

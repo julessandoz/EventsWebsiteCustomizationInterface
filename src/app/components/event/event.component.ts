@@ -29,6 +29,7 @@ import { DefaultDateFormats } from "../../constants/DefaultDateFormats"
 import { DateFormatter } from 'src/app/helpers/DateFormatter';
 import { EventRouterService } from 'src/app/services/event-router.service';
 import { Subscription } from 'rxjs';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
     selector: "app-event",
@@ -66,7 +67,8 @@ export class EventComponent implements OnInit, OnDestroy {
         private labelsService: LabelsService,
         private sessionCartService: SessionCartService,
         private activeEventService: ActiveEventService,
-        private datePipe: DatePipe
+        private datePipe: DatePipe,
+        private sanitizer: DomSanitizer
     ) { }
 
     ngOnDestroy(): void {
@@ -199,6 +201,10 @@ export class EventComponent implements OnInit, OnDestroy {
             isFreeEvent,
             hasSessions
         );
+    }
+
+    public getEventDescription() : SafeHtml {
+        return this.sanitizer.bypassSecurityTrustHtml(this.event.description);
     }
 }
 

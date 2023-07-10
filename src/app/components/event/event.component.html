@@ -40,9 +40,7 @@
     </div>
 
     <ng-container *ngIf="event">
-        <div class="container event-description-container mt-4" [innerHTML]="event.description">
-
-        </div>
+        <div class="container event-description-container mt-4" [innerHTML]="getEventDescription()"></div>
     </ng-container>
 
     <div [hidden]="!event" class="container event-data-container mt-4">

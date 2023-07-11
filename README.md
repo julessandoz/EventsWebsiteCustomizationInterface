@@ -1,21 +1,12 @@
-# Customizing Dynamics 365's Events Portal
+# Custsomization Interface for the Custom Dynamics 365 Events Website
 
-As part of my Bachelor's thesis, I'm working with [Silicom Group](https://silicom.group) to help them customize the Events Portal offered by Dynamics 365's Marketing Module more easily and efficiently.
+As part of my Bachelor's thesis, I'm working with [Silicom Group](https://silicom.group) to help them customize the Events Portal offered by Dynamics 365's Marketing Module more easily and efficiently. The main project is available on the [D365CustomEventsWebsite repo]([url](https://github.com/julessandoz/D365CustomEventsWebsite)). In order to improve the customization experience for both Silicom employees and their customers, a customization interface is under construction on this repo. 
 
-In this repo, I will be storing all my coding progress through the whole project.
+## Customization Interface's features
 
-## Changes to be made
-
-All along the project, I will be implementing multiple changes to the portal: Here's a non-exhaustive list:
-* Updating the general design such as: 
-    * The colors
-    * The fonts
-* Updating the look of the events list
-* Updating the look of the events' details pages
-* Adding the possibility to redirect to another website when clicking an event in the list
-* Adding the possibility to use private events
-* Adding the possibility to use categories
-* Adding filters to the events list
+* A side menu containing the customizable settings (To Be Implemented)
+* Dynamic change of the website's colors based on the changes on the settings
+* Sass variables export to simplify installation in production
 
 ## Pull requests
 As this is a Bachelor's thesis, external collaborations will not be accepted until at least September '23.
